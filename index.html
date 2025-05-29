@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--JAVASCRIPT IS BELOW-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Zekiel</a>
+
+        <nav>
+            <a href="#" class="active"> Home</a>
+            <a href="#" >Services</a>
+            <a href="#" >Skills</a>
+            <a href="#" >Education</a>
+            <a href="#" >Experience</a>
+            <a href="#" >Contact</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Zekiel</span></h1>
+            <h3 class="typing-text">I'm a Web Developer and <span></span></h3>
+            <p>"Building Digital Dreams,one line of code at a time. I create Stunning websites and web applications that drive results.From e-commerce to custom solutions,we bring your vision to life.We deliver fast and secure digital experience. Lets build something amazing together!"</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="www.whatsapp.com" class="btn"  id="whatsapp-btn">Hire me</a>
+        </div>
+    </section>
+
+    <!-- ...existing code... -->
+    <script>
+        // Typing animation for the subtitle
+        const roles = [" ..."];
+        let i = 0, j = 0, currentRole = "", isDeleting = false;
+        const span = document.querySelector('.typing-text span');
+
+        function type() {
+            if (!isDeleting && j <= roles[i].length) {
+                currentRole = roles[i].substring(0, j++);
+                span.textContent = currentRole;
+                setTimeout(type, 100);
+            } else if (isDeleting && j >= 0) {
+                currentRole = roles[i].substring(0, j--);
+                span.textContent = currentRole;
+                setTimeout(type, 60);
+            } else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) i = (i + 1) % roles.length;
+                setTimeout(type, 800);
+            }
+        }
+        type();
+
+
+
+
+        // WhatsApp button functionality
+
+
+    // WhatsApp chat opener
+    document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        // Replace with your WhatsApp number (with country code, no + or spaces)
+        const phone = '2348110263146';
+        const message = encodeURIComponent("Hello Zekiel, I'm interested in working with you!");
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    });
+
+<!-- ...existing code... -->
+    </script>
+<!-- ...existing code... -->
+</body>
+</html>
